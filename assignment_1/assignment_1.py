@@ -5,25 +5,24 @@ def RoPaSc(playerOneInput, playerTwoInput):
         choise = input('Its a tie! Play again? (y/n) \n  >')
         playAgain(choise)
     elif(playerOneInput == 'ROCK'):
-        if(playerTwoInput == 'PAPER'):
-            playerWin(2)
-        if(playerTwoInput == 'SCISSORS'):
+        if(playerTwoInput == 'SCISSOR'):
             playerWin(1)
+        else:
+            playerWin(2)
     elif(playerOneInput == 'PAPER'):
         if(playerTwoInput == 'ROCK'):
             playerWin(1)
-        if(playerTwoInput == 'SCISSORS'):
+        else:
             playerWin(2)
     elif(playerOneInput == 'SCISSORS'):
         if(playerTwoInput == 'ROCK'):
             playerWin(2)
-        if(playerTwoInput == 'PAPER'):
+        else:
             playerWin(1)
         
 def playerWin(player):
     print('Player ' + str(player) + ' wins!')
-    choise = input('Its a tie! Play again? (y/n) \n  >')
-    playAgain(choise)
+    playAgain()
 
 def getPlayerInput(player):
     playerInput = input(player + ': Rock, papers or scissors? type q to quit \n  > ').upper()
@@ -37,7 +36,9 @@ def checkInput(playerInput):
         exit()
     return playerInput in hand
 
-def playAgain(choise):
+def playAgain(choise = None):
+    if choise is None:
+        choise = input('Play again? (y/n) \n  >')
     if choise == 'y':
         playerOneInput = getPlayerInput('Player 1')
         playerTwoInput = getPlayerInput('Player 2')
