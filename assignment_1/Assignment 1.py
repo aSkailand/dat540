@@ -49,7 +49,7 @@ def checkInput(playerInput):
         Returns false if playerInput is invalid. Exits the script if player gives "Q" or "q" as input.
     '''
     if playerInput == 'Q':
-        exit()
+        quit()
     return playerInput in hand
 
 def playAgain(choise = None):
@@ -67,7 +67,7 @@ def playAgain(choise = None):
         RoPaSc(playerOneInput, playerTwoInput)
     # No, exit script
     elif choise == 'n':
-        exit()
+        quit()
     else:
         playAgain(input('Invalid input!'))
     
